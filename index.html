@@ -11,16 +11,67 @@
 		</div>
 		<div class="row-fluid body">
 			<h4>Overview</h4>
-			<p>From March-June, 2013, Development Gateway, the Open Aid Partnership, and the Government of Nepal worked on a pilot exercise to collect and code procurement data in Nepal. The goal of that exercise was to see the degree to which open procurement data could provide operationally-relevant information on development activities, with the view of aiding planners and policy makers to better understand patterns of spending in their sectors/countries.</p>
+			<p>From March-June, 2013, <a href="http://www.aiddata.org">AidData</a>, the <a href="http://www.openaidmap.org">Open Aid Partnership</a>, and the <a href="http://www.nepal.gov.np/">Government of Nepal</a> worked on a pilot exercise to collect and code procurement data in Nepal. The goal of that exercise was to see the degree to which open procurement data could provide operationally-relevant information on development activities, with the view of aiding planners and policy makers to better understand patterns of spending in their sectors/countries.</p>
 			<img class="img-rounded" src="img/funding-distribution.png" title="An example of a static map made with the data."/>
 			<p>Public information on procurement was obtained from the World Bank, the Asian Development Bank, and Nepal's Department of Local Infrastructure Development and Agricultural Roads. The DG team focused the pilot on four primary sectors: Water and Sanitation, Transportation, Energy, and Education. Documents for 38 unique projects were collected for the pilot, resulting in 435 individual contracts and tender awards. Geographic information for these procurement documents was also coded, allowing the procurement data to be mapped to specific point locations.</p>
 			<a href="http://owenscott.github.io/nepalFlowMap/"><img class="img-rounded" src="img/funding-flows.png" title="A screenshot from a demo app made with the data (linked)"/></a>
 			<p>This webpage contains the raw data in CSV format. Please contact Owen Scott (oscott at aiddata.org) with any questions.</p>
 			<h4>Data</h4>
 			<ul>
-				<li><a href="data/csv/nepal-pilot-projects.csv">Projects</a></li>
-				<li><a href="data/csv/nepal-pilot-contracts.csv">Contracts</a></li>
-				<li><a href="data/csv/nepal-pilot-contract-locations.csv">Locations</a></li>
+				<li><a href="data/csv/nepal-pilot-projects.csv">Projects (csv)</a></li>
+				<li><a href="data/csv/nepal-pilot-contracts.csv">Contracts (csv)</a></li>
+				<li><a href="data/csv/nepal-pilot-contract-locations.csv">Locations (csv)</a></li>
+			</ul>
+			<h4>Data Description</h4>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr><th>File</th><th>Field</th><th>Description</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>Projects</td><td>Database ID</td><td>Primary key for the project.</td></tr>
+					<tr><td>Projects</td><td>OAP ID</td><td>An internal ID used during the pilot. (Ignore).</td></tr>
+					<tr><td>Projects</td><td>AMP ID</td><td>The ID for the project in Nepal's <a href="http://portal.mof.gov.np/">Aid Management Platform</a> (if available).</td></tr>
+					<tr><td>Projects</td><td>Development Partner Project ID</td><td>The project ID used by the development partner who is funding the project (if available).</td></tr>
+					<tr><td>Projects</td><td>Development Partner</td><td>The name of the development partner funding the project.</td></tr>
+					<tr><td>Projects</td><td>Project Title</td><td>The title of the project.</td></tr>
+					<tr><td>Projects</td><td>OAP Sector</td><td>The project sector for the purpose of this pilot, using a very simplified list.</td></tr>
+					<tr><td>Projects</td><td>AMP Sector</td><td>The project sector according to Nepal's  <a href="http://portal.mof.gov.np/">Aid Management Platform</a></td></tr>
+					<tr><td>Projects</td><td>Description</td><td>A description of the project.</td></tr>
+					<tr><td>Projects</td><td>Partner Ministry</td><td>The main ministry which worked on the project.</td></tr>
+					<tr><td>Projects</td><td>Start Date</td><td>The start date for the project.</td></tr>
+					<tr><td>Projects</td><td>End Date</td><td>The end date for the project.</td></tr>
+					<tr><td>Projects</td><td>Total Commitment</td><td>The total funds (USD) committed to the project.</td></tr>
+					<tr><td>Projects</td><td>Total Disbursement</td><td>The total funds (USD) disbursed for the project to date.</td></tr>
+					<tr><td>Projects</td><td>Project Info Source</td><td>The source of the data about the project.</td></tr>
+					<tr><td>Contracts</td><td>ProjectID</td><td>The unique ID for the project (references "Database ID" in the Projects file).</td></tr>
+					<tr><td>Contracts</td><td>TransactionID</td><td>The primary key for the contract (for legacy reasons within the pilot "transaction" is used to refer to the combination of a procurement notice and a contract award).</td></tr>
+					<tr><td>Contracts</td><td>TransactionTitle</td><td>A descriptive title of what the contract is for.</td></tr>
+					<tr><td>Contracts</td><td>WrittenDescription</td><td>Additional information about what the contract is for.</td></tr>
+					<tr><td>Contracts</td><td>ProcurementCategory</td><td>The category of goods/services that the contract is for.</td></tr>
+					<tr><td>Contracts</td><td>TenderNoticeSource</td><td>A link to the original tender notice or a file name in the event of scanned documents (note: currently the original scanned documents are not available as part of the dataset).</td></tr>
+					<tr><td>Contracts</td><td>ContractAwardID</td><td>Legacy (ignore).</td></tr>
+					<tr><td>Contracts</td><td>ContractorName</td><td>The name of the contractor to whom the contract was awarded.</td></tr>
+					<tr><td>Contracts</td><td>ContractorCountry</td><td>The country in which the winning contractor is based.</td></tr>
+					<tr><td>Contracts</td><td>ContractAmount</td><td>The contract amount, in any currency.</td></tr>
+					<tr><td>Contracts</td><td>ContractCurrency</td><td>The currency which the original contract amount is in.</td></tr>
+					<tr><td>Contracts</td><td>ContractAmountUsd</td><td>The contract amount, converted to USD.</td></tr>
+					<tr><td>Contracts</td><td>DateOfAward</td><td>The date on which the contract was awarded to the contractor.</td></tr>
+					<tr><td>Contracts</td><td>StartDate</td><td>The start date for the contract.</td></tr>
+					<tr><td>Contracts</td><td>EndDate</td><td>The end date for the contract.</td></tr>
+					<tr><td>Contracts</td><td>ContractAwardSource</td><td>A link to the original contract or a file name in the event of scanned documents (note: currently the original scanned documents are not available as part of the dataset).</td></tr>
+					<tr><td>Locations</td><td>TransactionID</td><td>The ID of the transaction (contract) with which the location is associated (references TransactionID in the Contracts table).</td></tr>
+					<tr><td>Locations</td><td>GeonameID</td><td>The unique ID for the location from <a href="http://www.geonames.org/">Geonames</a>.</td></tr>
+					<tr><td>Locations</td><td>Latitude</td><td>The latitude of the location in decimal degrees (WGS1984).</td></tr>
+					<tr><td>Locations</td><td>Longitude</td><td>The longitude of hte location in decimal degrees (WGS1984).</td></tr>
+					<tr><td>Locations</td><td>Geoname</td><td>The name associated with the location. (Some of these were corrupted during db export - you may want to get them again from the Geonames API)</td></tr>
+					<tr><td>Locations</td><td>UcdpPrecision</td><td>The <a href="http://iatistandard.org/codelists/geographical_precision/">precision code</a> for the location using the UCDP methodology.</td></tr>
+					<tr><td>Locations</td><td>ADM1</td><td>The first-level administrative region for the location.</td></tr>
+					<tr><td>Locations</td><td>ADM1ID</td><td>The unique ID for the first-level administrative region for the location.</td></tr>
+					<tr><td>Locations</td><td>ADM2</td><td>The second-level administrative region for the location./td></tr>
+					<tr><td>Locations</td><td>ADM2ID</td><td>The unique ID for the second-level administrative region for the location.</td></tr>
+				</tbody>
+			</table>
+
 		</div>	
 	</div>
 </body>
